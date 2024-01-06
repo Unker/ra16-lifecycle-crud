@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface NoteFormProps {
   onAdd: (content: string) => void;
@@ -15,12 +18,12 @@ const NoteForm: React.FC<NoteFormProps> = ({ onAdd }) => {
   return (
     <div>
       <h2>Notes</h2>
-      <input
-        type="text"
+      <ReactQuill
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={(value) => setContent(value)}
+        modules={{ toolbar: [['bold', 'italic', 'underline', 'strike']] }}
       />
-      <button onClick={handleAdd}>Add</button>
+      <button className='btn btn-primary add-btn' onClick={handleAdd}>Add</button>
     </div>
   );
 };

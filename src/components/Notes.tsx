@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NoteCard from './NoteCard';
 import NoteForm from './NoteForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface NoteProps {
   id: number;
